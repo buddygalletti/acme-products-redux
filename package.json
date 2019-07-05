@@ -4,8 +4,7 @@
   "description": "",
   "main": "database.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start:dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +19,7 @@
   "homepage": "https://github.com/buddygalletti/acme-products-redux#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "pg": "^7.11.0"
+    "pg": "^7.11.0",
+    "sequelize": "^5.9.2"
   }
 }

@@ -70,9 +70,9 @@
 
       const Nav = ({ pathname, products }) => {
         const links = [
-          { text: "Home", to: "/" },
-          { text: `Products (${products.length})`, to: "/products" },
-          { text: "Create A Product", to: "/products/create" }
+          { text: 'Home', to: '/' },
+          { text: `Products (${products.length})`, to: '/products' },
+          { text: 'Create A Product', to: '/products/create' }
         ];
         return (
           <div id="nav">
@@ -80,7 +80,7 @@
               <Link
                 key={idx}
                 to={link.to}
-                className={pathname === link.to ? "active" : ""}
+                className={pathname === link.to ? 'active' : ''}
               >
                 {link.text}
               </Link>
@@ -108,7 +108,7 @@
         constructor() {
           super();
           this.state = {
-            name: ""
+            name: ''
           };
           this.onChange = this.onChange.bind(this);
           this.onSubmit = this.onSubmit.bind(this);
@@ -150,10 +150,10 @@
           this.create = this.create.bind(this);
         }
         async create(product, history) {
-          const response = await axios.post("/api/products", product);
+          const response = await axios.post('/api/products', product);
           const products = [...this.state.products, response.data];
           this.setState({ products });
-          history.push("/products");
+          history.push('/products');
         }
         async destroy(product) {
           await axios.delete(`/api/products/${product.id}`);
@@ -163,7 +163,7 @@
           this.setState({ products });
         }
         async componentDidMount() {
-          const response = await axios.get("/api/products");
+          const response = await axios.get('/api/products');
           this.setState({ products: response.data });
         }
         render() {
@@ -197,7 +197,22 @@
           );
         }
       }
-      const root = document.querySelector("#root");
+
+      // const App = () => {
+      //   return (
+      //     <HashRouter>
+      //       <h1>Acme Products</h1>
+      //       <Route component={Nav} />
+      //       <div id="content">
+      //         <Route exact path="/" component={Home} />
+      //         <Route exact path="/products" component={Products} />
+      //         <Route path="/products/create" component={ProductCreate} />
+      //       </div>
+      //     </HashRouter>
+      //   );
+      // };
+
+      const root = document.querySelector('#root');
       ReactDOM.render(<App />, root);
     </script>
   </body>
